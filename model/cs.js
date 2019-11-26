@@ -30,7 +30,7 @@ const shop = new mongoose.Schema({
         default:''
     },
     "date":{
-        type:String,
+        type:Date,
         require:true
     }
 }, {
