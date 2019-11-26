@@ -44,7 +44,7 @@ exports.addDocument = (req, res) => {
         .then((jsonObj) => {
             // console.log("in adddocument",jsonObj)
             let obj = jsonObj.filter(ele => ['SALE', 'AUTH', 'REFUND'].includes(ele.txn_type) && [ 'Amex', 'MasterCard', 'Visa','Discover','Maestro'].includes(ele.card_scheme))
-            obj.slice(300,400).forEach( (obj,key)=> {
+            obj.forEach( (obj,key)=> {
                 setTimeout(()=>{
                 // const dateFormate = new Date(obj.created_at).toString().slice(0,15);
                 const newValue = new schema.details({
@@ -66,7 +66,7 @@ exports.addDocument = (req, res) => {
                     }
                     else console.log("insert data failed ", err)
                 })
-            },key*100)
+            },key*25)
                 
             })
         })
